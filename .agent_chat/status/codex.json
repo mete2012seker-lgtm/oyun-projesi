@@ -1,0 +1,8 @@
+{
+  "agent": "codex",
+  "status": "offline",
+  "last_seen_utc": "1970-01-01T00:00:00Z",
+  "current_task": "",
+  "last_read_msg_id": 0,
+  "locked_files": []
+}

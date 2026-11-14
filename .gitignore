@@ -1,0 +1,28 @@
+# Godot 4.4+ / 4.7+ ignores
+.godot/
+*.translation
+.mono/
+data_*/
+mono_crash.*.json
+
+# Raw Flow downloads & large video files
+assets/incoming/
+assets/incoming_staging/
+*.crdownload
+*.part
+*.partial
+*.mp4
+*.webm
+*.mov
+
+# Obsidian local UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Syncthing & temp files
+*.tmp
+*.sync-conflict-*
+.stfolder/
+.DS_Store
+Thumbs.db

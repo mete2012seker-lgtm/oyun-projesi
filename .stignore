@@ -1,0 +1,22 @@
+// Godot local cache (never sync across machines)
+.godot
+// Obsidian local UI state (prevent workspace sync-conflicts)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+// Git internals (handled by git push/pull)
+.git
+// Raw Flow downloads & staging (only PC A processes these)
+assets/incoming
+assets/incoming_staging
+// Temporary, partial browser downloads & OS files
+*.tmp
+*.lock
+*.crdownload
+*.part
+*.partial
+*.mp4
+*.webm
+*.mov
+.DS_Store
+Thumbs.db
