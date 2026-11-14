@@ -36,5 +36,13 @@ Senin rolün **Codex** ajanısın. Lütfen şu adımları sırasıyla uygula:
 
 ## Arkadaşının Bilgisayarında Yapacağı 2 Kısa Ön Hazırlık
 
-1. **Ortak Klasörü Eşitle:** GitHub'dan projeyi klonla ve **Syncthing** ile bu klasörü Kullanıcı A'nın `oyun projesi` klasörüne bağla (`.stignore` otomatik olarak `.godot/`, `.git/` ve büyük video/indirmeleri hariç tutacaktır).
+1. **Ortak Klasörü Klonla ve Syncthing'e Bağla:**
+   - GitHub reposunu klonla:
+     ```bash
+     git clone https://github.com/mete2012seker-lgtm/oyun-projesi.git "oyun projesi"
+     ```
+   - **Syncthing**'i kur/aç (`http://127.0.0.1:8384`), **Add Remote Device** ile Kullanıcı A'nın cihazını ekle:
+     `DCMZR27-C2JTY5E-WRHTPUH-SRVUEGX-ME5U34S-L7H2FZA-WX7NPXM-ZDIYWAN`
+   - Paylaşılan `oyun projesi` klasörünü klonladığın bu klasörle eşleştir (`.stignore` otomatik olarak `.godot/`, `.git/` ve büyük video/indirmeleri hariç tutar).
+   - **Önemli Kural:** `git pull` yapmadan önce Syncthing'de bu klasörü geçici olarak **Pause** yap, `git pull` bitince **Resume** et.
 2. **Godot & Node.js:** Bilgisayarda **Godot 4.7+** ve MCP sunucuları için **Node.js (v18+)** kurulu olduğundan emin ol, ardından yukarıdaki promptu Codex'e ver.
