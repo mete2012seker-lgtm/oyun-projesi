@@ -1,48 +1,53 @@
-# Karşı Taraf (Codex) İçin Kurulum Promptu ve Rehberi
+# Karşı Taraf (Codex) İçin Tam Otomatik Kurulum Promptu
 
-Bu dosyadaki promptu, arkadaşın kendi bilgisayarında **Codex**'i proje klasöründe (`oyun projesi`) açtıktan sonra doğrudan kopyalayıp yapıştırabilir.
+Arkadaşın kendi bilgisayarında **Codex**'i açıp aşağıdaki promptu doğrudan yapıştırabilir. Prompt; eksik programları, proje klasörünü, skill'leri ve MCP sunucularını **önce kontrol eder, eksik olanları kurar** ve sistemi çalışır hale getirir.
 
 ---
 
 ## Codex'e Yapıştırılacak Hazır Prompt
 
 ```text
-Bu proje, iki farklı bilgisayarda (Antigravity + Codex) ortak geliştirdiğimiz bir Godot 4.7+ oyun projesidir.
-Senin rolün **Codex** ajanısın. Lütfen şu adımları sırasıyla uygula:
+Sen iki farklı bilgisayarda (Antigravity + Codex) ortak geliştirdiğimiz Godot 4.7+ oyun projesinde **Codex** ajanısın.
+Lütfen bu bilgisayarda aşağıdaki kontrolleri ve eksik kurulumları sırasıyla yap. Zaten kurulu/mevcut olanları atla, eksik olanları kur ve en sonunda bana özet rapor ver.
 
-1. Eğer masaüstünde `oyun projesi` klasörü henüz yoksa oluştur ve içinde şu yapıyı kur (varsa eksik dosyaları tamamla):
-   - Kök dosyalar: `AGENTS.md`, `.gitignore`, `.stignore` (`.godot/`, `assets/incoming/`, `*.mp4`, `*.crdownload`, `*.part` hariç tutulmalı; `*.uid` ve `*.import` korunmalı).
-   - Klasörler: `.agent_chat/status/`, `.agent_chat/memory/`, `.agent_chat/for_user/`, `.agent_chat/asset_requests/refs/`, `.agent_chat/archive/`, `assets/placeholders/`.
-   - Önce `AGENTS.md`, `COLLAB_PLAN.md` ve `.agent_chat/memory/codex_memory.md` dosyalarını oku ve tüm kuralları benimse.
-2. `.agent_chat/` altındaki kurallar:
-   - Mesaj yazarken YALNIZCA `.agent_chat/from_codex.md` dosyasına yaz (`from_antigravity.md` dosyasına yazma).
-   - Durumunu YALNIZCA `.agent_chat/status/codex.json` dosyasında güncelle (UTC `Z` zaman damgası, `locked_files` ve 20 dk `lock_lease_utc` ile).
-   - Her yeni sohbet başında `.agent_chat/memory/codex_memory.md` dosyasını oku; önemli kararları ve bağlamı oturum sonunda buraya kaydet.
-   - Proje içindeki `.agents/skills/oyun-asamasi-baslat/SKILL.md` ve `.agents/skills/oyun-asamasi-bitir/SKILL.md` skill'lerini aktif kullan (kullanıcı "Oyun Aşaması Başlat" dediğinde ilkini, "Oyun Aşaması Bitir" dediğinde ikincisini uygula).
-   - Antigravity kullanıcısına (karşı tarafa) not bırakman gerekirse `.agent_chat/for_user/from_codex.md` dosyasına yaz.
-   - Görsel/video ihtiyacın olduğunda (senin Google Flow erişimin olmadığı için) `.agent_chat/asset_requests/from_codex.md` dosyasına hedef yol, boyut ve hazır Google Flow promptu bırak; varsa referans eskizi `.agent_chat/asset_requests/refs/` altına koy. O gelene kadar `assets/placeholders/` ile geliştirme yap, bloke olma.
-3. Bu bilgisayarda Godot 4.7+ kurulu olup olmadığını ve aşağıdaki planlanan MCP sunucularından hangilerinin kurulması gerektiğini kontrol edip Codex MCP yapılandırmasını (`~/.codex/config.toml` veya `.codex/config.toml`) hazırla:
-   - Godot kontrolü: `godot-mcp` (veya canlı editör için `godot-mcp-bridge`: https://github.com/TomasLucasUTN/godot-mcp-bridge)
-   - Doküman okuma: `markitdown-mcp`
-   - Web/Export testi: `playwright-mcp`
-   - Piksel sanat & ses (opsiyonel, gerekiyorsa): `Godot-x-Aseprite-MCP-all` (https://github.com/Saudadeeee/Godot-x-Aseprite-MCP-all)
-   - Canlı ağlar arası mesajlaşma istenirse: `kitty-hive` (https://github.com/seangx/kitty-hive)
-4. Tüm kurulum ve kontroller bittiğinde:
-   - `.agent_chat/status/codex.json` dosyasını `"status": "idle"`, güncel UTC `last_seen_utc`, `capabilities` ve `last_read_msg_id: 1` olacak şekilde güncelle.
-   - `.agent_chat/from_codex.md` dosyasına `msg_id: 1` ile kurulumun tamamlandığını ve hazır olduğunu bildiren bir selam mesajı yaz.
+### 1. Sistem Araçlarını Kontrol Et ve Eksikleri Kur (Windows için `winget` kullan)
+Aşağıdaki programların kurulu olup olmadığını kontrol et, kurulu olmayanları kur:
+- **Git** (`Git.Git`)
+- **Node.js LTS (v18+)** (`OpenJS.NodeJS.LTS`)
+- **Godot Engine 4.7+** (`GodotEngine.GodotEngine`)
+- **Syncthing** (`Syncthing.Syncthing`)
+- **Obsidian** (`Obsidian.Obsidian`)
+
+### 2. Proje Klasörünü ve Dosyaları Kontrol Et / Klonla
+- Masaüstünde `oyun projesi` klasörünü kontrol et. Yoksa şu GitHub reposunu masaüstüne `oyun projesi` adıyla klonla:
+  `git clone https://github.com/mete2012seker-lgtm/oyun-projesi.git "oyun projesi"`
+- Varsa ve içi güncellenmemişse `git pull origin main` yap (Syncthing aktifse pull öncesi klasörü Syncthing'de geçici **Pause** yap).
+- Şu dosya ve klasörlerin varlığını doğrula (eksik varsa oluştur):
+  - `AGENTS.md`, `COLLAB_PLAN.md`, `INDEX.md`, `.gitignore`, `.stignore`
+  - `.agent_chat/status/`, `.agent_chat/memory/`, `.agent_chat/for_user/`, `.agent_chat/asset_requests/refs/`, `.agent_chat/archive/`, `.obsidian/`, `assets/placeholders/`
+- `AGENTS.md`, `COLLAB_PLAN.md` ve `.agent_chat/memory/codex_memory.md` dosyalarını oku ve kuralları benimse.
+
+### 3. Skill'leri Aktar ve Kontrol Et (`oyun-asamasi-baslat` & `oyun-asamasi-bitir`)
+- Proje içindeki `.agents/skills/oyun-asamasi-baslat/SKILL.md` ve `.agents/skills/oyun-asamasi-bitir/SKILL.md` dosyalarının varlığını doğrula.
+- Bu iki skill'i Codex'in küresel skill dizinine de (`~/.codex/skills/` veya `~/.agents/skills/`) kopyala ki her oturumda doğrudan tanıyabilesin.
+- Kullanıcı "Oyun Aşaması Başlat" dediğinde ilkini, "Oyun Aşaması Bitir" dediğinde ikincisini çalıştır.
+
+### 4. MCP Sunucularını Kontrol Et ve Eksikleri Kur (`~/.codex/config.toml`)
+Codex MCP yapılandırmasını kontrol et; eksik olanları kur ve yapılandır:
+1. **Godot MCP:** `Coding-Solo/godot-mcp` (veya canlı editör ağacı için `TomasLucasUTN/godot-mcp-bridge`) kur, `GODOT_PATH` ortam değişkenini bu bilgisayardaki Godot 4.7+ yoluna ayarla.
+2. **MarkItDown MCP:** `markitdown-mcp` (doküman/GDD okuma için).
+3. **Playwright MCP:** `@playwright/mcp` (web araştırması ve Godot Web export testi için).
+4. **Opsiyonel (İhtiyaç Halinde):** Piksel sanat ve ses için `Saudadeeee/Godot-x-Aseprite-MCP-all` (`aseprite`, `rfxgen`, `ffmpeg`), canlı ağlar arası ajan mesajlaşması için `seangx/kitty-hive`.
+
+### 5. Syncthing ve Obsidian Ayarını Hazırla
+- Syncthing henüz başlatılmadıysa `syncthing generate` ile sertifikayı oluştur ve bu bilgisayarın **Syncthing Device ID** kodunu ekrana yazdır (arkadaşımıza/Kullanıcı A'ya göndermemiz gerekecek).
+- Kullanıcı A'nın cihaz ID'si: `DCMZR27-C2JTY5E-WRHTPUH-SRVUEGX-ME5U34S-L7H2FZA-WX7NPXM-ZDIYWAN` — Syncthing üzerinden bu cihazı ekle ve `oyun projesi` klasörünü eşleştirmeye hazırla (`.stignore` otomatik olarak `.godot/`, `.git/`, `.obsidian/workspace.json` ve `assets/incoming/` klasörlerini hariç tutacaktır).
+- Obsidian'da `oyun projesi` klasörünün **Open folder as vault** ile açılabileceğini doğrula (`INDEX.md` + `Ctrl+G` Graph View hazır).
+
+### 6. İletişim Kuralları ve İlk Selamlaşma
+- Mesaj yazarken YALNIZCA `.agent_chat/from_codex.md` ve durum için YALNIZCA `.agent_chat/status/codex.json` kullan (`from_antigravity.md` dosyasına yazma).
+- Kullanıcı A'ya (Antigravity'nin kullanıcısına) not bırakmak için `.agent_chat/for_user/from_codex.md` kullan.
+- Senin Google Flow erişimin olmadığı için görsel/video gerektiğinde `.agent_chat/asset_requests/from_codex.md` dosyasına hedef yol, boyut ve hazır Google Flow promptu yaz; o gelene kadar `assets/placeholders/` ile devam et.
+- Kurulum bitince `.agent_chat/status/codex.json` dosyasını `"status": "idle"`, güncel UTC `last_seen_utc`, `capabilities` ve `last_read_msg_id: 1` olarak güncelle; `.agent_chat/from_codex.md` dosyasına `msg_id: 1` ile hazır olduğunu bildir.
+- Son olarak bana: (a) nelerin zaten kurulu olduğunu, (b) neleri yeni kurduğunu ve (c) benim **Syncthing Device ID** kodumu listele.
 ```
-
----
-
-## Arkadaşının Bilgisayarında Yapacağı 2 Kısa Ön Hazırlık
-
-1. **Ortak Klasörü Klonla ve Syncthing'e Bağla:**
-   - GitHub reposunu klonla:
-     ```bash
-     git clone https://github.com/mete2012seker-lgtm/oyun-projesi.git "oyun projesi"
-     ```
-   - **Syncthing**'i kur/aç (`http://127.0.0.1:8384`), **Add Remote Device** ile Kullanıcı A'nın cihazını ekle:
-     `DCMZR27-C2JTY5E-WRHTPUH-SRVUEGX-ME5U34S-L7H2FZA-WX7NPXM-ZDIYWAN`
-   - Paylaşılan `oyun projesi` klasörünü klonladığın bu klasörle eşleştir (`.stignore` otomatik olarak `.godot/`, `.git/` ve büyük video/indirmeleri hariç tutar).
-   - **Önemli Kural:** `git pull` yapmadan önce Syncthing'de bu klasörü geçici olarak **Pause** yap, `git pull` bitince **Resume** et.
-2. **Godot & Node.js:** Bilgisayarda **Godot 4.7+** ve MCP sunucuları için **Node.js (v18+)** kurulu olduğundan emin ol, ardından yukarıdaki promptu Codex'e ver.
