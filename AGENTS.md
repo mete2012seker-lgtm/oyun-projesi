@@ -16,6 +16,7 @@ Her iki ajan da herhangi bir dosyayı düzenlemeden önce sırasıyla şu kontro
    - Okunan son mesajın `msg_id` değerini kendi `status/<self>.json` dosyasındaki `last_read_msg_id` alanına yaz.
 3. `.agent_chat/CHANGELOG.md` dosyasını okuyarak son yapılan değişiklikleri öğren.
 4. Düzenlenecek dosyaların karşı ajanın `locked_files` listesinde olmadığını doğrula ve kendi `locked_files` listene ekle.
+5. **Beckett MCP Otomatik Başlatma:** `project.godot` mevcutsa ve `http://127.0.0.1:8770/mcp` (Beckett MCP) yanıt vermiyorsa, ajan Godot Editörünü otomatik olarak başlatır (`--editor --path .`) ve `res://addons/beckett/plugin.cfg` eklentisinin aktif olduğunu doğrular.
 
 ## 2. Sıfır Çakışma Kuralları
 - **Tek Yazar Kuralı:**
