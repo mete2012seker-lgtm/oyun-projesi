@@ -25,6 +25,11 @@ Her iki ajan da herhangi bir dosyayı düzenlemeden önce sırasıyla şu kontro
   - `status/antigravity.json` dosyasına yalnızca Antigravity, `status/codex.json` dosyasına yalnızca Codex yazar.
 - **Godot Sahneleri:** `main.tscn` ve `project.godot` gibi ortak dosyalar aynı anda düzenlenmez. Yeni özellikler mümkün olduğunca ayrı sahnelerde (`scenes/player.tscn`, `scenes/ui.tscn` vb.) geliştirilir.
 - **Zaman Damgası:** Tüm tarih/saat alanları **UTC (`Z`)** formatında yazılır (`YYYY-MM-DDTHH:MM:SSZ`).
+- **Senkronizasyon Rol Ayrımı (Split-Brain Önleme):**
+  - **Syncthing** yalnızca `.agent_chat/` ve `assets/` klasörlerini anlık taşır (`.stignore` buna göre ayarlıdır).
+  - **Kod, sahneler, `project.godot`, `addons/` ve dokümanlar** yalnızca **Git** ile taşınır: göreve başlarken `git pull --rebase`, görev bitiminde `git add` + `git commit` + `git push`.
+  - `.stignore` Syncthing tarafından eşitlenmez; Git ile gelir. Değiştiğinde her iki PC'de de Syncthing yeniden taranmalıdır.
+  - Proje klasörü OneDrive gibi üçüncü bir bulut eşitleyicisinin içinde tutulmaz.
 
 ## 3. Görev Bitiminde ve Temizleme (Ack-Before-Reset)
 1. Yapılan değişiklikleri `.agent_chat/CHANGELOG.md` dosyasına ekle.

@@ -12,5 +12,11 @@
   - Bunu kendi `AGENTS.md` ve `oyun-asamasi-baslat` akışına da uygula.
 - `[msg_id: 4]` `[2026-11-16T08:56:00Z]` **`project.godot` Oluşturuldu (Beckett Aktif):** Proje kökünde `project.godot` oluşturuldu ve `BeckettRuntime` autoload + `res://addons/beckett/plugin.cfg` eklentisi varsayılan olarak etkinleştirildi.
   - Karşı bilgisayarda Syncthing çalışmıyorsa başlat (`syncthing --no-browser`), `git pull` / eşitleme sonrası `~/.codex/config.toml` içine `beckett` (`http://127.0.0.1:8770/mcp`) ekleyip Codex'i bir kez yeniden başlat ve Godot Editörünü aç.
+- `[msg_id: 5]` `[2026-11-16T09:23:00Z]` **Senkronizasyon Rol Ayrımı + Temizlik:**
+  - **Yeni kural (`AGENTS.md` §2):** Syncthing artık **yalnızca `.agent_chat/` ve `assets/`** taşır. Kod, sahneler, `project.godot`, `addons/` ve dokümanlar **yalnızca Git** ile taşınır (başlarken `git pull --rebase`, bitirirken commit + push).
+  - `.stignore` Syncthing ile eşitlenmez; `git pull` sonrası yeni `.stignore` gelir, ardından Syncthing'de klasörü yeniden tara (Rescan).
+  - **Sırayla yapılacaklar:** (1) Mümkünse proje klasörünü OneDrive dışına taşı (örn. `C:\Projeler\oyun projesi`) ve Syncthing klasör yolunu güncelle. (2) Syncthing açıksa duraklat → `git pull` (hayalet değişiklik varsa `git stash` / `git reset --hard origin/main`) → Syncthing'i devam ettir. (3) Godot 4.7.2 ile projeyi aç, Beckett dock'unda **Connect Detected Clients** ile Codex'i bağla, eski `godot` MCP kaydını kaldır. (4) `status/codex.json` içinde `last_read_msg_id: 5` yap ve `from_codex.md`'ye onay yaz.
+  - Yanlışlıkla eklenen iç içe `oyun projesi/` klasörü silindi.
+  - Oyun türü / GDD henüz kararlaştırılmadı; Kullanıcı A karar verince `docs/GDD.md` ve iş bölümü paylaşılacak. O zamana kadar oyun kodu yazma.
 
 

@@ -1,18 +1,10 @@
-// Godot local cache (never sync across machines)
-.godot
-// Obsidian local UI state (prevent workspace sync-conflicts)
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache
-// Beckett per-PC MCP client configs & auth token
-.mcp.json
-.cursor
-.beckett
-// Git internals (handled by git push/pull)
-.git
+// ROL AYRIMI (2026-11-16): Syncthing YALNIZCA .agent_chat/ ve assets/ klasörlerini taşır.
+// Kod, sahneler, project.godot ve addons/ SADECE Git (commit/push/pull) ile taşınır.
+// Not: Syncthing'de ilk eşleşen kural geçerlidir; hariç tutmalar önce, izinler sonra gelir.
+
 // Raw Flow downloads & staging (only PC A processes these)
-assets/incoming
-assets/incoming_staging
+/assets/incoming
+/assets/incoming_staging
 // Temporary, partial browser downloads & OS files
 *.tmp
 *.lock
@@ -24,3 +16,10 @@ assets/incoming_staging
 *.mov
 .DS_Store
 Thumbs.db
+
+// Syncthing tarafından eşitlenecek klasörler
+!/.agent_chat
+!/assets
+
+// Geri kalan her şey (kod, sahneler, .godot, .git, .beckett, .mcp.json, .obsidian ...) Git'e bırakılır
+*

@@ -1,8 +1,11 @@
 {
-  "agent": "antigravity",
-  "status": "idle",
-  "last_seen_utc": "2026-11-16T08:05:00Z",
-  "current_task": "",
-  "last_read_msg_id": 0,
-  "locked_files": []
+    "last_seen_utc":  "2026-11-16T09:23:28Z",
+    "agent":  "antigravity",
+    "locked_files":  [
+
+                     ],
+    "lock_lease_utc":  "",
+    "current_task":  "",
+    "last_read_msg_id":  1,
+    "status":  "idle"
 }
