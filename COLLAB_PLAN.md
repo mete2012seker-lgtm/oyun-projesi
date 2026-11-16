@@ -77,7 +77,7 @@ Google Cloud kredilerinin kullanılmayabileceği ve resmi olmayan tarayıcı oto
 | Kategori | Araç / Eklenti | Kullanım Amacı |
 |---|---|---|
 | **Ajan Haberleşmesi** | `kitty-hive` (veya `agent-collab-hub`) | Farklı ağlardaki Antigravity ve Codex arasında mesajlaşma, görev devri ve Cloudflare Tunnel ile güvenli bağlantı. |
-| **Godot Editör** | `godot-mcp` / `godot-mcp-bridge` | Sahne ve düğüm yönetimi; `bridge` ile açık editör ağacını ezmeden canlı düzenleme. |
+| **Godot Editör** | `beckett-godot-mcp` (`addons/beckett/`) | Godot 4.7+ editör içi canlı MCP eklentisi (`http://127.0.0.1:8770/mcp`): sahne/düğüm düzenleme (`Ctrl+Z` destekli), `write_script` doğrulama ve çalışan oyundan `screenshot` / `game_logs` okuma. (`.mcp.json` ve `.beckett/` hariç tutulur). |
 | **2D Piksel Sanat & Ses** | `Godot-x-Aseprite-MCP-all` (`aseprite`, `rfxgen`, `ffmpeg`) | Sprite/animasyon düzenleme, retro 8-bit ses efektleri üretimi ve Godot uyumlu `.ogg` dönüşümü. |
 | **Doküman Okuma** | `markitdown-mcp` | PDF, Word (`.docx`), tablo ve tasarım dokümanlarını (GDD) anında Markdown'a çevirme. |
 | **Word Düzenleme (Opsiyonel)** | `Office Word MCP` | Hikaye veya GDD doğrudan `.docx` olarak düzenlenecekse kullanılır. |

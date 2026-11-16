@@ -4,26 +4,6 @@
     "type": "split",
     "children": [
       {
-        "id": "aa5bb855ad2a997c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "daf8a0db77e3e96b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hoş geldiniz.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Hoş geldiniz"
-            }
-          }
-        ]
-      },
-      {
         "id": "4af54e901e4c6119",
         "type": "tabs",
         "children": [
@@ -99,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "af28edcc2e6c8d49",
@@ -204,7 +185,7 @@
       "bases:Yeni taban oluştur": false
     }
   },
-  "active": "daf8a0db77e3e96b",
+  "active": "6a90642c262dca7f",
   "lastOpenFiles": [
     "Hoş geldiniz.md"
   ]

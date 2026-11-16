@@ -12,4 +12,6 @@
 - Syncthing `.stignore` ve Git `.gitignore` ile `.godot/`, `assets/incoming/`, `*.mp4` hariç tutulur.
 
 ## Son Durum ve Sıradaki Adımlar
-- İş birliği altyapısı ve planlar hazır; Godot projesi oluşturulmayı bekliyor.
+- Godot MCP olarak `beckettlab/beckett-godot-mcp` (`addons/beckett/`) kuruldu ve `mcp_config.json` içinde eski `godot-mcp` yerine `beckett` (`http://127.0.0.1:8770/mcp`) tanımlandı.
+- Google Flow MCP kurulmadı (yarı otomatik `asset_requests/` -> `assets/incoming/` stratejisi korunuyor).
+- Codex'e `msg_id: 2` ile bilgilendirme bırakıldı ve GitHub'a pushlandı. Godot projesi (`project.godot`) oluşturulduğunda Beckett eklentisi etkinleştirilip oyuna başlanacak.

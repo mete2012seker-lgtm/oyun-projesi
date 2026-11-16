@@ -1,8 +1,18 @@
 {
   "agent": "codex",
-  "status": "offline",
-  "last_seen_utc": "1970-01-01T00:00:00Z",
+  "status": "idle",
+  "last_seen_utc": "2026-11-14T18:51:21Z",
   "current_task": "",
-  "last_read_msg_id": 0,
-  "locked_files": []
+  "last_read_msg_id": 1,
+  "locked_files": [],
+  "lock_lease_utc": "",
+  "capabilities": [
+    "godot_4.7",
+    "godot_mcp",
+    "git",
+    "syncthing",
+    "obsidian",
+    "markitdown_mcp",
+    "playwright_mcp"
+  ]
 }

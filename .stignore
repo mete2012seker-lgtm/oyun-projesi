@@ -4,6 +4,10 @@
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache
+// Beckett per-PC MCP client configs & auth token
+.mcp.json
+.cursor
+.beckett
 // Git internals (handled by git push/pull)
 .git
 // Raw Flow downloads & staging (only PC A processes these)

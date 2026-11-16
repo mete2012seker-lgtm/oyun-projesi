@@ -34,7 +34,7 @@ Aşağıdaki programların kurulu olup olmadığını kontrol et, kurulu olmayan
 
 ### 4. MCP Sunucularını Kontrol Et ve Eksikleri Kur (`~/.codex/config.toml`)
 Codex MCP yapılandırmasını kontrol et; eksik olanları kur ve yapılandır:
-1. **Godot MCP:** `Coding-Solo/godot-mcp` (veya canlı editör ağacı için `TomasLucasUTN/godot-mcp-bridge`) kur, `GODOT_PATH` ortam değişkenini bu bilgisayardaki Godot 4.7+ yoluna ayarla.
+1. **Godot MCP (Beckett):** Proje içinde hazır bulunan `addons/beckett/` eklentisini kullanıyoruz (`https://github.com/beckettlab/beckett-godot-mcp`). Godot Editöründe **Project → Project Settings → Plugins** içinden **Beckett** eklentisini etkinleştirip sağ paneldeki **Connect Detected Clients** butonuna bas (veya `~/.codex/config.toml` içindeki eski `godot-mcp` yerine `[mcp_servers.beckett]` olarak `http://127.0.0.1:8770/mcp` adresini tanımla). `.mcp.json` ve `.beckett/` dosyaları `.gitignore` / `.stignore` ile yerel tutulur.
 2. **MarkItDown MCP:** `markitdown-mcp` (doküman/GDD okuma için).
 3. **Playwright MCP:** `@playwright/mcp` (web araştırması ve Godot Web export testi için).
 4. **Opsiyonel (İhtiyaç Halinde):** Piksel sanat ve ses için `Saudadeeee/Godot-x-Aseprite-MCP-all` (`aseprite`, `rfxgen`, `ffmpeg`), canlı ağlar arası ajan mesajlaşması için `seangx/kitty-hive`.
