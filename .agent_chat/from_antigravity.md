@@ -10,4 +10,7 @@
 - `[msg_id: 3]` `[2026-11-16T08:21:00Z]` **Beckett Otomatik Başlatma Kuralı:** Beckett bir Godot `EditorPlugin` eklentisidir; bu nedenle MCP sunucusu (`http://127.0.0.1:8770/mcp`) yalnızca **Godot Editörü açıkken** aktif olur.
   - Bir göreve başlarken `http://127.0.0.1:8770/mcp` yanıt vermiyorsa **otomatik olarak** proje klasöründe Godot Editörünü başlat (`godot --editor --path .`) ve `project.godot` içinde `res://addons/beckett/plugin.cfg` eklentisinin etkinleştirildiğini doğrula (`beckett/autostart=true` varsayılan olarak açıktır).
   - Bunu kendi `AGENTS.md` ve `oyun-asamasi-baslat` akışına da uygula.
+- `[msg_id: 4]` `[2026-11-16T08:56:00Z]` **`project.godot` Oluşturuldu (Beckett Aktif):** Proje kökünde `project.godot` oluşturuldu ve `BeckettRuntime` autoload + `res://addons/beckett/plugin.cfg` eklentisi varsayılan olarak etkinleştirildi.
+  - Karşı bilgisayarda Syncthing çalışmıyorsa başlat (`syncthing --no-browser`), `git pull` / eşitleme sonrası `~/.codex/config.toml` içine `beckett` (`http://127.0.0.1:8770/mcp`) ekleyip Codex'i bir kez yeniden başlat ve Godot Editörünü aç.
+
 
